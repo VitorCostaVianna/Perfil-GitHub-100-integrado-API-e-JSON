@@ -1,0 +1,17 @@
+{
+  "name": "trabalho-api",
+  "version": "1.0.0",
+  "description": "Projeto de backend com JSON Server",
+  "main": "main.js",
+  "scripts": {
+    "start": "json-server --watch ./db/db.json --static ./public"
+  },
+  "keywords": [],
+  "author": "Vitor Costa Vianna",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "json-server": "^0.17.3"
+  }
+}

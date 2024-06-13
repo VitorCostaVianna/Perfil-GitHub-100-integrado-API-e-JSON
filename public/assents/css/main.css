@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background-color: #0d1117!important;
+  color: #fff!important;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+header ul {
+  display: flex;
+  list-style: none;
+
+}
+header ul li{
+  margin-left: 20px;  
+} 
+header h1 {
+  background-color: #8b949e !important;
+  color: #0d1117 !important;
+  padding: 5px;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+a {
+  text-decoration: none;
+  color: #8b949e;
+}
+
+.content-main {
+  margin: 30px;
+  /*display: grid;
+  grid-template-columns: 1fr 2fr ;*/
+}
+
+.content-main .project {
+  border: 1px solid #30363d !important; 
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 30px;
+  border-radius: 6px;
+  margin: 20px;
+}
+
+.content-main .project div {
+  display: flex;
+  justify-content: space-between;
+}
+.content-main .project div .data-create {
+  color: #8b949e!important;
+  border: 1px solid #8b949e!important;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 0.9em;
+}
+
+.content-main .project div .title {
+  color: #47a6f0!important;
+}
+
+.content-main .project .language .circle {
+  background-color: #47a6f0;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  border: 1px solid #30363d;
+  border-radius: 50%;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.perfilGIT {
+  display: flex;
+}
+.perfilGIT h3{
+    margin-left:30px;
+}
+.perfilGIT p{
+  margin-left:30px;
+}
+.perfil .texto{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.texto ul {
+  list-style: none;
+}
+.perfil .img {
+  flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+.perfil .img img {
+  max-width: 150px; /* Set a max width for the image */
+  border-radius: 50%; /* Optional: Make the image circular */
+  margin-top: 20px;
+  margin-left: 20px;
+}
+/*
+.perfil .texto {
+  flex-grow: 1; /* Allow the text to take up the remaining space 
+}*/
+
+.colega img {
+  border-radius: 50%;
+  max-width: 150px;
+  margin-top: 20px;
+}
+#colegasDiv {
+  display: flex;
+  justify-content: space-evenly;
+}
+.carrosel{
+    width: 1000px;
+    margin-left: 430px;
+}
+
+@media(max-width: 768px){
+    
+  .content-main .project {
+   border: 1px solid #30363d !important; 
+   display: flex;
+   flex-wrap: wrap;
+  } 
+  .content-main .project div {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .carrosel{
+    width: 100%;
+    margin-left: 0px;
+}
+#colegasDiv {
+  display: flex;
+  flex-wrap:wrap;
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+}
