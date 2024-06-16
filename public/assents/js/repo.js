@@ -1,4 +1,4 @@
-const repositories = document.querySelector('body');
+const repositories = document.querySelector('#repositories'); // Mudança aqui para pegar pelo id
 
 function getApiGitHub() {
     fetch('https://api.github.com/users/VitorCostaVianna/repos')
@@ -19,7 +19,7 @@ function getApiGitHub() {
                     </div>
                     <div>
                         <a href="${item.html_url}" target="_blank">${item.html_url}</a>
-                        <spam class="language"><span class="circle"></span>${item.language}</spam>
+                        <span class="language"><span class="circle"></span>${item.language}</span>
                     </div>
                 </div>
                 `
@@ -27,9 +27,10 @@ function getApiGitHub() {
                 repositories.appendChild(project);
             })
         })
+        .catch(error => {
+            console.error('Error fetching GitHub repositories:', error);
+        });
 }
-
-
 
 window.onload = () => {
     getApiGitHub();
