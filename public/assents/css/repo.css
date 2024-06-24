@@ -1,0 +1,22 @@
+a {
+    color: black;
+}
+
+#project-details {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+h1{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+p {
+    font-size: 1.5em;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;   
+}

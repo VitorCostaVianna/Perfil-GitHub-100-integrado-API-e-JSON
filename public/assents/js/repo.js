@@ -13,14 +13,17 @@ function getUrlParams() {
 // Capture URL parameters
 const params = getUrlParams();
 
-// Format the date
-const formattedDate = new Intl.DateTimeFormat("pt-BR").format(new Date(params.created_at));
+// Format the date if available
+let formattedDate = '';
+if (params.created_at) {
+    formattedDate = new Intl.DateTimeFormat("pt-BR").format(new Date(params.created_at));
+}
 
 // Update the page content
 document.getElementById('project-details').innerHTML = `
-    <p>Nome: <br> ${params.name}</p>
-    <p>Descrição: <br> ${params.description}</p>
-    <p>ID:<br> ${params.id}</p>
-    <p>Linguagem:<br> ${params.language}</p>
-    <p>Data de Criação:<br> ${formattedDate}</p>
+    <h2>Nome: <br> ${params.name || 'N/A'}</h2>
+    <h2>Descrição: <br> ${params.description || 'N/A'}</h2>
+    <h2>ID:<br> ${params.id || 'N/A'}</h2>
+    <h2>Linguagem:<br> ${params.language || 'N/A'} <i class="fa-solid fa-code"></i></h2>
+    <h2>Data de Criação:<br> ${formattedDate || 'N/A'}</h2>
 `;

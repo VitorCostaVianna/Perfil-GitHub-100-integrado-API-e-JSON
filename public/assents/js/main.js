@@ -118,7 +118,7 @@ function getApiGitHub() {
             }
 
             let data = await res.json();
-            data.map(item => {
+            data.forEach(item => {
                 let project = document.createElement('div');
 
                 project.innerHTML = `
@@ -128,7 +128,7 @@ function getApiGitHub() {
                         <span class="data-create">${Intl.DateTimeFormat('pt-BR').format(new Date(item.created_at))}</span>
                     </div>
                     <div>
-                        <a href="${item.html_url}" target="_blank">${item.html_url}</a>
+                        <a href="./repo.html?name=${encodeURIComponent(item.name)}&id=${item.id}&language=${encodeURIComponent(item.language)}&created_at=${item.created_at}&description=${encodeURIComponent(item.description)}" target="_blank">Ver detalhes</a>
                         <spam class="language"><span class="circle"></span>${item.language}</spam>
                     </div>
                 </div>
@@ -137,6 +137,9 @@ function getApiGitHub() {
                 repositories.appendChild(project);
             })
         })
+        .catch(error => {
+            console.error('Error fetching GitHub repositories:', error);
+        });
 }
 
 
@@ -173,9 +176,6 @@ function getPerfilApiGitHub() {
             console.error('Error fetching GitHub profile:', error);
         });
 }
-
-
-
 
 
 
