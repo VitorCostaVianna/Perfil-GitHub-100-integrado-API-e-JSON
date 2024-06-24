@@ -1,37 +1,26 @@
-const repositories = document.querySelector('#repositories'); // Mudança aqui para pegar pelo id
-
-function getApiGitHub() {
-    fetch('https://api.github.com/users/VitorCostaVianna/repos')
-        .then(async res => {
-            if (!res.ok) {
-                throw new Error(res.status);
-            }
-
-            let data = await res.json();
-            data.map(item => {
-                let project = document.createElement('div');
-
-                project.innerHTML = `
-                <div class="project">
-                    <div>
-                        <h4 class="title">${item.name}</h4>
-                        <span class="data-create">${Intl.DateTimeFormat('pt-BR').format(new Date(item.created_at))}</span>
-                    </div>
-                    <div>
-                        <a href="${item.html_url}" target="_blank">${item.html_url}</a>
-                        <span class="language"><span class="circle"></span>${item.language}</span>
-                    </div>
-                </div>
-                `
-
-                repositories.appendChild(project);
-            })
-        })
-        .catch(error => {
-            console.error('Error fetching GitHub repositories:', error);
-        });
+// Function to get URL parameters
+function getUrlParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        name: params.get('name'),
+        id: params.get('id'),
+        language: params.get('language'),
+        created_at: params.get('created_at'),
+        description: params.get('description')
+    };
 }
 
-window.onload = () => {
-    getApiGitHub();
-};
+// Capture URL parameters
+const params = getUrlParams();
+
+// Format the date
+const formattedDate = new Intl.DateTimeFormat("pt-BR").format(new Date(params.created_at));
+
+// Update the page content
+document.getElementById('project-details').innerHTML = `
+    <p>Nome: <br> ${params.name}</p>
+    <p>Descrição: <br> ${params.description}</p>
+    <p>ID:<br> ${params.id}</p>
+    <p>Linguagem:<br> ${params.language}</p>
+    <p>Data de Criação:<br> ${formattedDate}</p>
+`;
